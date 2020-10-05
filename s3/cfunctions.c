@@ -217,14 +217,13 @@ int S3_init(){
 	if (useSignatureV4G) flags |= S3_INIT_SIGNATURE_V4;
 	if ((status = S3_initialize("s3", flags, hostname)) != S3StatusOK) {
 		fprintf(
-			stderr, "Failed to initialize libs3: %s\n",
-			S3_get_status_name(S3Status status)
+			stderr, "Failed to initialize libs3: %s\n"
 		);
 		return -1;
 	}
 	if (useSignatureV4G && regionNameG) {
 		if ((status = S3_set_region_name(regionNameG)) != S3StatusOK) {
-			fprintf(stderr, "Failed to set region name to %s: %s\n",regionNameG, S3_get_status_name(S3Status status));
+			fprintf(stderr, "Failed to set region name to %s: %s\n",regionNameG);
 			return -1;
 		}
 	}
